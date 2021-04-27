@@ -24,7 +24,7 @@ export const config: WebdriverIO.Config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/**/*.ts'
+        './src/test/specs/**/*.ts'
     ],
     // Patterns to exclude.
     exclude: [
@@ -53,7 +53,7 @@ export const config: WebdriverIO.Config = {
     // https://docs.saucelabs.com/reference/platforms-configurator
     //
     capabilities: [{
-    
+
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
@@ -114,7 +114,7 @@ export const config: WebdriverIO.Config = {
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
     services: ['chromedriver'],
-    
+
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: https://webdriver.io/docs/frameworks
@@ -135,10 +135,10 @@ export const config: WebdriverIO.Config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec','junit'],
+    reporters: ['spec', 'junit'],
 
 
-    
+
     //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
@@ -146,6 +146,24 @@ export const config: WebdriverIO.Config = {
         ui: 'bdd',
         timeout: 60000
     },
+    //
+    // TypeScript
+
+    autoCompileOpts: {
+        autoCompile: true,
+        // see https://github.com/TypeStrong/ts-node#cli-and-programmatic-options
+        // for all available options
+        tsNodeOpts: {
+            transpileOnly: true,
+            project: 'tsconfig.json'
+        },
+        // tsconfig-paths is only used if "tsConfigPathsOpts" are provided, if you
+        // do please make sure "tsconfig-paths" is installed as dependency
+        // tsConfigPathsOpts: {
+        //     baseUrl: './'
+        // }
+    },
+
     //
     // =====
     // Hooks
