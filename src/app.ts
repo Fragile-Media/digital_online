@@ -1,23 +1,14 @@
-import express, { Application, Request, Response, NextFunction } from "express"
-import "dotenv/config"
-import bodyParser from "body-parser"
-import Routes from "./Routes"
-import Connect from "./connect"
+import express, { Application, Request, Response } from 'express';
+import 'dotenv/config';
 
-const app: Application = express()
+const app: Application = express();
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
-app.get("/", (req: Request, res: Response) => {
-  res.send("TS App is Running")
-})
+app.get('/', (req: Request, res: Response) => {
+    res.send('TS App is Running');
+});
 
-const PORT = process.env.PORT
-const db = "mongodb://localhost:27017/test"
-
-Connect({ db })
-Routes({ app })
+const PORT = process.env.PORT;
 
 app.listen(PORT, () => {
-  console.log(`server is running on PORT ${PORT}`)
-})
+    console.log(`server is running on PORT ${PORT}`);
+});
