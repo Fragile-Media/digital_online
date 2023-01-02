@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/d4v3w/digital_online#readme",
   "devDependencies": {
-    "@babel/cli": "^7.13.16",
+    "@babel/cli": "^7.20.7",
     "@babel/preset-env": "^7.13.15",
     "@babel/preset-react": "^7.13.13",
     "@babel/preset-typescript": "^7.13.0",
